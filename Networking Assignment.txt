@@ -1,0 +1,49 @@
+﻿1)
+The given command is 
+printf ‘HEAD / HTTP/1.1\r\nHost: en.wikipedia.org\r\n\r\n’  | nc en.wikipedia.org 80
+
+
+This command gets http header of en.wikipedia.org website by sending an http request.
+It consists of two commands: printf and nc(netcat).
+
+
+Printf just prints formatted strings.In this case,we are piping two commands so that output of printf is taken as input for nc command.
+So,the http request ‘HEAD / HTTP/1.1\r\nHost: en.wikipedia.org\r\n\r\n’ is sent to nc command.
+
+
+nc(netcat) command is used to connect to a server.In this case,it connects to en.wikipedia.org via port 80.It takes the input from printf command i.e. the http request and sends it to en.wikipedia.org.
+The server sends back the header of en.wikipedia.org and displays it on the terminal.
+
+
+The output is:
+HTTP/1.1 301 TLS Redirect
+Date: Thu, 23 Jan 2020 05:54:07 GMT
+Server: Varnish
+X-Varnish: 723137139
+X-Cache: cp5011 int
+X-Cache-Status: int-front
+Server-Timing: cache;desc="int-front"
+Set-Cookie: WMF-Last-Access=23-Jan-2020;Path=/;HttpOnly;secure;Expires=Mon, 24 Feb 2020 00:00:00 GMT
+Set-Cookie: WMF-Last-Access-Global=23-Jan-2020;Path=/;Domain=.wikipedia.org;HttpOnly;secure;Expires=Mon, 24 Feb 2020 00:00:00 GMT
+X-Client-IP: 183.82.101.16
+Location: https://en.wikipedia.org/
+Content-Length: 0
+Via: HTTP/1.1 forward.http.proxy:3128
+Connection: keep-alive
+
+
+
+
+2)
+To get the contents of www.rediff.com , change the command to
+printf ‘HEAD / HTTP/1.1\r\nHost: www.rediff.com\r\n\r\n’  | nc www.rediff.com 80
+
+
+The output is:
+HTTP/1.1 301 Moved Permanently
+Server: AkamaiGHost
+Content-Length: 0
+Location: https://www.rediff.com/
+Date: Thu, 23 Jan 2020 05:57:32 GMT
+Via: HTTP/1.1 forward.http.proxy:3128
+Connection: keep-alive
