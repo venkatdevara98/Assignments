@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=RPGgameGood
+comment1.params=name\ health\ attack\ defense
+comment1.target=HeroGood(java.lang.String,\ int,\ int,\ int)
+comment2.params=enemy
+comment2.target=void\ attack(Enemy)
+comment3.params=
+comment3.target=void\ showHealth()
+comment4.params=
+comment4.target=void\ main()
+numComments=5
