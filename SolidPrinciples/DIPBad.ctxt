@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=DIPBad
+comment1.params=comment
+comment1.target=void\ postComment(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getSenderName()
+comment3.params=
+comment3.target=void\ main()
+numComments=4

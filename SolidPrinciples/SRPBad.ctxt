@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=SRPBad
+comment1.params=name
+comment1.target=void\ addMember(java.lang.String)
+comment2.params=name
+comment2.target=java.lang.String\ getMemberDetails(java.lang.String)
+comment3.params=
+comment3.target=void\ main()
+numComments=4
