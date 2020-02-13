@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=Employee
-comment1.params=name\ email\ Birthdate
-comment1.target=EmployeeSuper(java.lang.String,\ java.lang.String,\ java.time.LocalDate)
-comment2.params=
-comment2.target=void\ isBirthday()
-comment3.params=
-comment3.target=void\ main()
-numComments=4
