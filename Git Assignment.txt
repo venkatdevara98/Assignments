@@ -16,4 +16,4 @@ Q)
 
 A)
 Here is the URL of my git repo.
-https://github.com/venkatdevara98/zemoso-training.git
+https://github.com/venkatdevara98/zemoso_training.git
