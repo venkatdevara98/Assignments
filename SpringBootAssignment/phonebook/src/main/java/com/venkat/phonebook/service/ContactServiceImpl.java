@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.venkat.phonebook.dao.ContactDAO;
 import com.venkat.phonebook.entity.Contact;
@@ -15,18 +16,21 @@ public class ContactServiceImpl implements ContactService {
 	private ContactDAO contactDAO;
 	
 	@Override
+	@Transactional
 	public List<Contact> listAll() {
 		return contactDAO.listAll();
 	}
 	
 
 	@Override
+	@Transactional
 	public Contact listById(int thisId) {
 		
 		return contactDAO.listById(thisId);
 	}
 
 	@Override
+	@Transactional
 	public void save(Contact thisContact) {
 		
 		contactDAO.save(thisContact);
@@ -34,6 +38,7 @@ public class ContactServiceImpl implements ContactService {
 	}
 
 	@Override
+	@Transactional
 	public void deleteById(int thisId) {
 		
 		contactDAO.deleteById(thisId);

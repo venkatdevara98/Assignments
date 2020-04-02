@@ -35,11 +35,9 @@ public class ContactDaoImpl implements ContactDAO {
 	public Contact listById(int thisId) {
 				Session currentSession = entityManager.unwrap(Session.class);
 				
-				// get the employee
 				Contact theContact =
 						currentSession.get(Contact.class, thisId);
 				
-				// return the employee
 				return theContact;
 	}
 
@@ -56,10 +54,10 @@ public class ContactDaoImpl implements ContactDAO {
 	public void deleteById(int thisId) {
 		Session currentSession = entityManager.unwrap(Session.class);
 		
-		Query theQuery = 
+		Query<Contact> theQuery = 
 				currentSession.createQuery(
-						"delete from Employee where id=:employeeId");
-		theQuery.setParameter("employeeId", thisId);
+						"delete from Contact where id=:contactId");
+		theQuery.setParameter("contactId", thisId);
 		
 		theQuery.executeUpdate();
 		
