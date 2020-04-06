@@ -38,8 +38,8 @@ public class ContactRestController {
 	@PostMapping("/contacts")
 	public Contact addContact(@RequestBody Contact theContact) {
 		theContact.setId(0);
-		contactService.save(theContact);
-		return theContact;
+		return contactService.save(theContact);
+		
 	}
 	
 	@PutMapping("/contacts")

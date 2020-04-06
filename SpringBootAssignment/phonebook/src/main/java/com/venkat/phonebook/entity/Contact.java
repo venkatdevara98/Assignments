@@ -57,5 +57,29 @@ public class Contact {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+	@Override 
+	public boolean equals(Object obj) 
+	{ 
+		if (obj == this) 
+		  { 
+			return true; 
+		  } 
+		if (obj == null || obj.getClass() != this.getClass()) { 
+			return false; 
+			} 
+		Contact thisContact = (Contact) obj; 
+		if(thisContact.id!=this.id)
+			return false;
+		if(!(thisContact.name).equals(this.name))
+			return false;
+		if(!(thisContact.phone).equals(this.phone))
+			return false;
+
+		return true;
+	}
 	
+	@Override
+	public String toString() {
+		return id+name+phone;
+	}
 }

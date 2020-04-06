@@ -31,10 +31,10 @@ public class ContactServiceImpl implements ContactService {
 
 	@Override
 	@Transactional
-	public void save(Contact thisContact) {
+	public Contact save(Contact thisContact) {
 		
 		contactDAO.save(thisContact);
-
+        return contactDAO.listById(thisContact.getId());
 	}
 
 	@Override
@@ -44,5 +44,7 @@ public class ContactServiceImpl implements ContactService {
 		contactDAO.deleteById(thisId);
 
 	}
-
+    
+	
+	
 }
