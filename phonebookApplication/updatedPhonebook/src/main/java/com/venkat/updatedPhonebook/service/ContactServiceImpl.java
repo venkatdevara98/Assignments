@@ -3,6 +3,7 @@ package com.venkat.updatedPhonebook.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.junit.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,7 @@ import com.venkat.updatedPhonebook.entity.Contact;
 @Service
 public class ContactServiceImpl implements ContactService {
 
+	
 	private ContactRepository contactRepository;
 	
 	@Autowired
@@ -26,6 +28,7 @@ public class ContactServiceImpl implements ContactService {
 		return contactRepository.findAll();
 	}
 
+	
 	@Override
 	public Contact findById(int theId) {
 		Optional<Contact> result = contactRepository.findById(theId);
@@ -44,7 +47,7 @@ public class ContactServiceImpl implements ContactService {
 
 	@Override
 	public void save(Contact theContact) {
-		contactRepository.save(theContact);
+	  contactRepository.save(theContact);
 	}
 
 	@Override
