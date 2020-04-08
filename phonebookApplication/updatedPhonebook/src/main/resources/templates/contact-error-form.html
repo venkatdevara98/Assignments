@@ -12,11 +12,13 @@
 
 <body>
 <h3>Contact Form</h3>
+<h5 style="color:red;">Contact with same name and phone number already exists</h5>
 <hr>
  <form action="#" th:action="@{/contacts/save}"
     th:object="${contact}" method="POST">
     <input style="display:none" type="text" th:field="*{id}" placeholder="Id"
            class="form-control mb-4 col-4">
+     
      Name:
      <div th:classappend="${#fields.hasErrors('name')} ? 'input-icon right' : ''">
        <i th:if="${#fields.hasErrors('name')}" class="fa fa-exclamation tooltips" data-original-title="please enter a valid name" data-container="body"></i>
@@ -24,14 +26,12 @@
        <span th:if="${#fields.hasErrors('name')}" class="help-block" th:errors="*{name}"></span>
        </div>
    <hr>
-        
     Phone:
    <div th:classappend="${#fields.hasErrors('phone')} ? 'input-icon right' : ''">
         <i th:if="${#fields.hasErrors('phone')}" class="fa fa-exclamation tooltips" data-original-title="please enter a valid phone" data-container="body"></i>
         <input type="text" class="form-control" maxlength="10" th:field="*{phone}" th:required="required" placeholder="Enter a 10 digit phone number"/>
         <span th:if="${#fields.hasErrors('phone')}" class="help-block" th:errors="*{phone}"></span>
     </div>
-    <hr>
       <button type="submit" class="btn btn-info col-2">Save</button>
     </form>
 </body>

@@ -59,6 +59,8 @@ public class ContactController {
 	public String saveContact(@Valid Contact contact,BindingResult bindingResult) {
 		if(bindingResult.hasErrors())
 			return "contact-form";
+		if(checkContact(contact))
+			return "contact-error-form";
 		contactService.save(contact);
 		return "redirect:/contacts/list";
 	}
@@ -80,5 +82,14 @@ public class ContactController {
 		theModel.addAttribute("contacts",requestedContacts);
 		return "list-contacts";
 		}
+	
+	public boolean checkContact(Contact contact) {
+		List<Contact> contacts=contactService.findAll();
+		for(Contact presentContact:contacts) {
+			if(contact.getName().equals(presentContact.getName())&&contact.getPhone().equals(presentContact.getPhone()))
+					return true;
+		}
+		return false;
 	}
+}
 
