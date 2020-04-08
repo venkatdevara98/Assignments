@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.venkat.updatedPhonebook.dto.ContactDTO;
 import com.venkat.updatedPhonebook.entity.Contact;
 import com.venkat.updatedPhonebook.service.ContactService;
 
@@ -32,8 +33,9 @@ public class ContactController {
 	
 	@GetMapping("/list")
 	public String listContacts(Model theModel) {
-		List<Contact> contacts=contactService.findAll();
-        theModel.addAttribute("contacts",contacts);
+		
+		List<ContactDTO> contacts=contactService.findAllDTO();
+		theModel.addAttribute("contacts",contacts);
         
         return "list-contacts";
 	}
@@ -54,7 +56,7 @@ public class ContactController {
 	
 	
 	@PostMapping("/save")
-	public String saveContact(/*@ModelAttribute("contact") Contact theContact,*/@Valid Contact contact,BindingResult bindingResult) {
+	public String saveContact(@Valid Contact contact,BindingResult bindingResult) {
 		if(bindingResult.hasErrors())
 			return "contact-form";
 		contactService.save(contact);

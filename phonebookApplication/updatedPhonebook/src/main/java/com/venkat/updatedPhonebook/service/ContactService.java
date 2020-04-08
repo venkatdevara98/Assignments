@@ -2,6 +2,7 @@ package com.venkat.updatedPhonebook.service;
 
 import java.util.List;
 
+import com.venkat.updatedPhonebook.dto.ContactDTO;
 import com.venkat.updatedPhonebook.entity.Contact;
 
 public interface ContactService {
@@ -13,5 +14,9 @@ public interface ContactService {
 	public void save(Contact theContact);
 	
 	public void deleteById(int theId);
+	
+	public ContactDTO getContact(int theId);
+	
+	public List<ContactDTO> findAllDTO();
 	
 }

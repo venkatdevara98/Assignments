@@ -25,7 +25,7 @@ public @Data class Contact {
 	
 	@NotNull(message="Name cannot be empty")
 	@Size(min=1,max=16,message="Name must be between 1 and 16 characters")
-	@Pattern(regexp="^[a-zA-Z]*$",message="Name must contain only letters")
+	@Pattern(regexp="^[a-zA-Z ]*$",message="Name must contain only letters")
 	@Column(name="name")
 	private String name;
 	
