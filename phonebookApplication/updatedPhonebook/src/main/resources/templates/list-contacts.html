@@ -13,10 +13,15 @@
 <h3>Contacts</h3>
 <hr>
 <a th:href="@{/contacts/showFormForAdd}" class="btn btn-primary btn-sm mb-3">Add Contact</a>
+<form action="#" th:action="@{/contacts/showRequested}">
+  <input type="text" th:name="contactName"/>
+  <input type="submit" value="Search">
+</form>
 <table class="table table-bordered table-striped">
  <thead class="thead-dark">
    <tr>
-      <th>Id</th>
+   
+      <th style="display:none;">Id</th>
       <th>Name</th>
       <th>Phone</th>
       <th>Action</th>
@@ -24,7 +29,7 @@
   </thead>
   <tbody>
     <tr th:each="tempContact : ${contacts}">
-      <td th:text="${tempContact.id}"/>
+      <td style="display:none" th:text="${tempContact.id}"/>
       <td th:text="${tempContact.name}" />
       <td th:text="${tempContact.phone}" />
       <td>
