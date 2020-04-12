@@ -11,28 +11,38 @@
 </head>
 
 <body>
-<h3>Contact Form</h3>
-<h6 style="color:red;">Contact with same phone number already exists</h6>
+<h3 style="color:green">Contact Saved Successfully</h3>
 <hr>
- <form action="#" th:action="@{/contacts/save}"
-    th:object="${contact}" method="POST">
-    <input style="display:none" type="text" th:field="*{id}" placeholder="Id"
-           class="form-control mb-4 col-4">
-     
+
+ <form action="#" th:action="@{/contacts/showFormForUpdate(contactId=${contact.id})}"
+    th:object="${contact}" method="GET">
+    
+          
+    Id:
+    <input type="text" th:field="*{id}" placeholder="Id"
+           class="form-control mb-4 col-4" readonly>
      Name:
      <div th:classappend="${#fields.hasErrors('name')} ? 'input-icon right' : ''">
        <i th:if="${#fields.hasErrors('name')}" class="fa fa-exclamation tooltips" data-original-title="please enter a valid name" data-container="body"></i>
-       <input type="text" class="form-control" maxlength="16" th:field="*{name}" th:required="required" placeholder="Enter a name between 1 and 16 characters"/>
+       <input type="text" class="form-control" maxlength="16" th:field="*{name}" th:required="required" placeholder="Enter a name between 1 and 16 characters" readonly/>
        <span style="color:red" th:if="${#fields.hasErrors('name')}" class="help-block" th:errors="*{name}"></span>
        </div>
    <hr>
+        
     Phone:
    <div th:classappend="${#fields.hasErrors('phone')} ? 'input-icon right' : ''">
         <i th:if="${#fields.hasErrors('phone')}" class="fa fa-exclamation tooltips" data-original-title="please enter a valid phone" data-container="body"></i>
-        <input type="text" class="form-control" maxlength="10" th:field="*{phone}" th:required="required" placeholder="Enter a 10 digit phone number"/>
+        <input type="text" class="form-control" maxlength="10" th:field="*{phone}" th:required="required" placeholder="Enter a 10 digit phone number" readonly/>
         <span style="color:red" th:if="${#fields.hasErrors('phone')}" class="help-block" th:errors="*{phone}"></span>
     </div>
-    <hr>
-      <button type="submit" class="btn btn-info col-2">Save</button>
+    
     </form>
+    <br>
+    <a th:href="@{/contacts/showFormForUpdate(contactId=${contact.id})}"
+           class="btn btn-info btn-sm">Update</a>
+    <a th:href="@{/contacts/delete(contactId=${contact.id})}"
+           class="btn btn-danger btn-sm"
+           onclick="if(!(confirm('Are you sure?')))return false">Delete</a>
+    <hr>
+    <a th:href="@{/contacts/list}">Back to Contacts List</a>
 </body>

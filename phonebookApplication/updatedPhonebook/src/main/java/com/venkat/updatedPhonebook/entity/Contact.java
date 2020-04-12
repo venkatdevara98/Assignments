@@ -10,12 +10,14 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Entity
 @Table(name="contacts")
-public @Data class Contact {
+public @Data @NoArgsConstructor @AllArgsConstructor class Contact {
       
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -30,18 +32,10 @@ public @Data class Contact {
 	private String name;
 	
 	@NotNull(message="Phone number cannot be empty")
-	@Size(min=10,max=10,message="Phone number must be of 10 digits only")
-	@Pattern(regexp="^[1-9]{1}[0-9]{9}",message="Phone number must contain only digits")
+	@Size(min=10,max=10,message="Phone number must contain 10 digits")
+	@Pattern(regexp="^[1-9]{1}[0-9]*",message="Phone number must contain only digits")
 	@Column(name="phone")
 	private String phone;
 
-	public Contact(int id, String name, String phone) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.phone = phone;
-	}
-    public Contact() {
-    	
-    }
+	
 }

@@ -15,8 +15,6 @@ public interface ContactService {
 	
 	public void deleteById(int theId);
 	
-	public ContactDTO getContact(int theId);
 	
-	public List<ContactDTO> findAllDTO();
 	
 }

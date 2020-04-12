@@ -21,7 +21,7 @@
      <div th:classappend="${#fields.hasErrors('name')} ? 'input-icon right' : ''">
        <i th:if="${#fields.hasErrors('name')}" class="fa fa-exclamation tooltips" data-original-title="please enter a valid name" data-container="body"></i>
        <input type="text" class="form-control" maxlength="16" th:field="*{name}" th:required="required" placeholder="Enter a name between 1 and 16 characters"/>
-       <span th:if="${#fields.hasErrors('name')}" class="help-block" th:errors="*{name}"></span>
+       <span style="color:red" th:if="${#fields.hasErrors('name')}" class="help-block" th:errors="*{name}"></span>
        </div>
    <hr>
         
@@ -29,9 +29,11 @@
    <div th:classappend="${#fields.hasErrors('phone')} ? 'input-icon right' : ''">
         <i th:if="${#fields.hasErrors('phone')}" class="fa fa-exclamation tooltips" data-original-title="please enter a valid phone" data-container="body"></i>
         <input type="text" class="form-control" maxlength="10" th:field="*{phone}" th:required="required" placeholder="Enter a 10 digit phone number"/>
-        <span th:if="${#fields.hasErrors('phone')}" class="help-block" th:errors="*{phone}"></span>
+        <span style="color:red" th:if="${#fields.hasErrors('phone')}" class="help-block" th:errors="*{phone}"></span>
     </div>
     <hr>
       <button type="submit" class="btn btn-info col-2">Save</button>
     </form>
+    <br>
+    <a th:href="@{/contacts/list}">Back to Contacts List</a>
 </body>

@@ -12,12 +12,7 @@
 <div class="container">
 <h3>Contacts</h3>
 <hr>
-<a th:href="@{/contacts/listWithId}">Show full list with ids</a> 
- <hr>
-
 <a th:href="@{/contacts/showFormForAdd}" class="btn btn-primary btn-sm mb-3">Add Contact</a>
-
-<hr>
 <form action="#" th:action="@{/contacts/showRequested}">
   <label>Search by Name:</label>
   <input type="text" th:name="contactName"/>
@@ -29,13 +24,11 @@
   <input type="text" th:name="contactId"/>
   <input type="submit" value="Search">
 </form>
-
-
 <table class="table table-bordered table-striped table-dark">
  <thead class="thead-dark">
    <tr>
    
-      <th style="display:none;">Id</th>
+      <th>Id</th>
       <th>Name</th>
       <th>Phone</th>
       <th>Action</th>
@@ -43,7 +36,7 @@
   </thead>
   <tbody>
     <tr th:each="tempContact : ${contacts}">
-      <td style="display:none" th:text="${tempContact.id}"/>
+      <td th:text="${tempContact.id}"/>
       <td th:text="${tempContact.name}" />
       <td th:text="${tempContact.phone}" />
       <td>
@@ -51,7 +44,7 @@
            class="btn btn-info btn-sm">Update</a>
       <a th:href="@{/contacts/delete(contactId=${tempContact.id})}"
            class="btn btn-danger btn-sm"
-           onclick="if(!(confirm('Are you sure?')))return false">Delete</a>
+           onclick="if (!(confirm('Are you sure?')))return false">Delete</a>
            </td>
      </tr>
    </tbody>
