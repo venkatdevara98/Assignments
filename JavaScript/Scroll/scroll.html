@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+ <body>
+    <div style="margin-bottom:100px"></div>
+    <p id="test" style="margin-bottom:1200px">0px</p>
+
+  <script>
+     function handler(event){
+            test.innerHTML=window.pageYOffset+"px";
+     }
+     window.addEventListener('scroll',handler);
+  </script>
+</body>
+</html>
