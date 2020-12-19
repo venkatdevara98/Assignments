@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+ <body>
+    <p id="test" onmouseover="handler(event)" onmouseout="handler2(event)">Information</p>
+
+  <script>
+         function handler(event){
+            event.target.style.background="red";
+            event.relatedTarget.style.background="blue";
+            
+         }
+         
+          function handler2(event){
+               event.target.style.background="";
+            event.relatedTarget.style.background="";
+            }
+  </script>
+</body>
+</html>

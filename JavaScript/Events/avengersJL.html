@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+ <body>
+           <input type="button" value="Show Avengers" onclick="showAvengers()">
+           <input type="button" value="Show Justice League" onclick="showJL()">
+           <ul id="avengers" style="display:none">
+               <li>Iron Man</li>
+               <li>Captain America</li>
+               <li>Thor</li>
+               <li>Doctor Strange</li>
+           </ul>
+           <ul id="jl" style="display:none">
+                <li>Batman</li>
+                <li>Superman</li>
+                <li>Flash</li>
+                <li>Aquaman</li>
+           </ul>
+
+  <script>
+           function showAvengers(){
+                   avengers.style.display="";
+                   jl.style.display="none";
+            }
+           function showJL(){
+                    jl.style.display="";
+                    avengers.style.display="none";
+            }
+  </script>
+</body>
+</html>

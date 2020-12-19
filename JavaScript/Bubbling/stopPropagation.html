@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+ <body>
+
+         <div id="avengers">
+           <ul id="avengersList">
+               <li id="ironMan">Iron Man</li>
+               <li>Captain America</li>
+               <li>Thor</li>
+               <li>Doctor Strange</li>
+           </ul>
+        </div>
+
+  <script>
+           function handler(event){
+                     event.stopPropagation();
+                     alert(event.target);
+                     alert(this.tagName);
+           }
+           avengers.addEventListener('click',handler);
+           avengersList.addEventListener('click',handler);
+           ironMan.addEventListener('click',handler);
+  </script>
+</body>
+</html>

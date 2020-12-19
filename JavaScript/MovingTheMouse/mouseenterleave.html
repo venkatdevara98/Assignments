@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+ <body>
+       <input type="button" id="test" value="Move mouse over me">
+
+  <script>
+        function handler(event){
+           if(event.type==="mouseenter"){
+               test.value="Entered";
+            }
+            else if(event.type="mouseleave"){
+               test.value="left";
+            }
+        }
+        test.addEventListener("mouseenter",handler);
+        test.addEventListener("mouseleave",handler);
+
+  </script>
+</body>
+</html>

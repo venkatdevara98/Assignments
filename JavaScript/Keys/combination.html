@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+ <body>
+    
+
+  <script>
+      function handler(event){
+             if(event.code==="KeyS" && event.ctrlKey){
+                    alert("Saved");
+             }
+ 	     if(event.code==="KeyC" && event.ctrlKey){
+                    alert("Copying");
+             }
+             if(event.code==="KeyA" && event.ctrlKey){
+                    alert("Selecting all");
+             }
+        }
+      document.addEventListener('keydown',handler);
+  </script>
+</body>
+</html>
